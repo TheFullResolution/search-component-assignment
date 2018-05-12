@@ -1,8 +1,15 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
+}
+
+*:focus:not(.focus-visible) {
+  outline-width: 0;
 }
 
 body {
