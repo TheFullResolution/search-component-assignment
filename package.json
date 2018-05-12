@@ -8,17 +8,24 @@
     "react-dom": "16.3.2"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.3",
+    "@storybook/addon-actions": "3.4.3",
+    "@storybook/addon-links": "3.4.3",
+    "@storybook/addons": "3.4.3",
+    "@storybook/react": "3.4.3",
+    "babel-core": "6.26.3",
+    "babel-eslint": "8.2.3",
+    "babel-runtime": "6.26.0",
     "concurrently": "3.5.1",
-    "flow-bin": "^0.72.0",
-    "hygen-cra": "^1.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-react-app": "2.1.0",
+    "eslint-plugin-flowtype": "2.46.3",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.8.1",
+    "flow-bin": "0.72.0",
+    "hygen-cra": "1.0.0",
     "react-scripts": "1.1.4",
-    "react-test-renderer": "^16.3.2",
-    "@storybook/addon-actions": "^3.4.3",
-    "@storybook/addon-links": "^3.4.3",
-    "@storybook/addons": "^3.4.3",
-    "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0"
+    "react-test-renderer": "16.3.2"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"canned -p 5000 ./api/\"",
@@ -28,5 +35,16 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:react/recommended"
+    ],
+    "rules": {
+      "no-extend-native": 0
+    },
+    "plugins": [],
+    "env": {}
+  }
 }
