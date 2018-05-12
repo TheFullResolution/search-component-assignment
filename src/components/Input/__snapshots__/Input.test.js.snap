@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input: default 1`] = `
+<div
+  className="input-container"
+>
+  <input
+    aria-label="Zoeken"
+    className="input-element"
+    onChange={[Function]}
+    placeholder="Zoeken"
+    style={
+      Object {
+        "backgroundImage": "url(/images/magnifying-glass.svg)",
+      }
+    }
+    type="text"
+    value=""
+  />
+  <div
+    className="input-reset-container"
+  />
+</div>
+`;
+
+exports[`Input: with Value 1`] = `
+<div
+  className="input-container"
+>
+  <input
+    aria-label="Zoeken"
+    className="input-element"
+    onChange={[Function]}
+    placeholder="Zoeken"
+    style={
+      Object {
+        "backgroundImage": "url(/images/magnifying-glass.svg)",
+      }
+    }
+    type="text"
+    value="test"
+  />
+  <div
+    className="input-reset-container"
+  >
+    <button
+      aria-label="Reset"
+      className="input-reset"
+      onClick={[Function]}
+    >
+      <img
+        alt="Reset"
+        src="/images/cancel.svg"
+      />
+    </button>
+  </div>
+</div>
+`;

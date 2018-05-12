@@ -1,16 +1,41 @@
 .input-container {
-	margin: 20px auto;
-	max-width: 600px;
+  margin: 20px auto;
+  max-width: 500px;
+  position: relative;
 }
 
 .input-element {
-	background-size: 10px;
-	border: 1px solid rgb(204, 204, 204);
-	line-height:1;
-	padding: 8px;
-	white-space:normal;
-	width: 100%;
-  background-image: url(../../images/magnifying-glass.png);
   background-position: calc(100% - 8px);
   background-repeat: no-repeat;
+  background-size: 12px;
+  border: 1px solid rgb(204, 204, 204);
+  line-height: 1;
+  padding: 8px;
+  transition: border 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  white-space: normal;
+  width: 100%;
+}
+
+.input-element:focus {
+  border: 1px solid black;
+  outline: 0;
+}
+
+.input-reset-container {
+  height: 100%;
+  position: absolute;
+  right: 28px;
+  top: 0;
+}
+
+.input-reset {
+  background-color: inherit;
+  border: none;
+  display: block;
+  height: 100%;
+}
+
+.input-reset img {
+  height: 12px;
+  vertical-align: middle;
 }
