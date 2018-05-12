@@ -1,5 +1,4 @@
-import '../components/TEst/TEst.story'
-
+import '../components/Input/Input.story'
 
 // import React from 'react';
 //
