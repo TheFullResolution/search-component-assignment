@@ -5,14 +5,14 @@ import React, { Component } from 'react'
 import { Input } from '../components/Input/Input'
 import { Value } from '../components/Value/Value'
 import Downshift from 'downshift'
-import Highlighter from 'react-highlight-words'
+import { Autocomplete } from '../components/Autocomplete/Autocomplete'
 
 class App extends Component<{}> {
   render() {
     return (
       <div className="app-container">
         <Value>
-          {({ onChange, value, resetValue, autoComplete }) => (
+          {({ autoComplete, error, onChange, resetValue, value }) => (
             <Downshift onInputValueChange={onChange} inputValue={value}>
               {({
                 getInputProps,
@@ -20,41 +20,27 @@ class App extends Component<{}> {
                 highlightedIndex,
                 inputValue,
                 isOpen,
-                reset,
+                clearSelection,
                 selectedItem
               }) => {
                 const resetCombine = () => {
                   resetValue()
-                  reset()
+                  clearSelection()
                 }
                 return (
-                  <div>
+                  <div className="app-search-wrapper">
                     <Input
                       {...{ getInputProps, inputValue, reset: resetCombine }}
                     />
-                    {isOpen && inputValue ? (
-                      <div style={{ border: '1px solid #ccc' }}>
-                        {autoComplete.map(({ searchterm }, index) => (
-                          <div
-                            {...getItemProps({ item: searchterm })}
-                            key={searchterm}
-                            style={{
-                              backgroundColor:
-                                highlightedIndex === index ? 'gray' : 'white',
-                              fontWeight:
-                                selectedItem === searchterm ? 'bold' : 'normal'
-                            }}
-                          >
-                            <Highlighter
-                              highlightClassName="YourHighlightClass"
-                              searchWords={[inputValue]}
-                              autoEscape={true}
-                              textToHighlight={searchterm}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    ) : null}
+                    <Autocomplete
+                      {...{
+                        autoComplete,
+                        getItemProps,
+                        highlightedIndex,
+                        inputValue,
+                        show: isOpen && !error && inputValue.length > 2
+                      }}
+                    />
                   </div>
                 )
               }}

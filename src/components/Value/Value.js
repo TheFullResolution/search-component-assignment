@@ -4,6 +4,8 @@ import { Component } from 'react'
 import type { Node } from 'react'
 import axios from 'axios'
 import matchSorter from 'match-sorter'
+import throttle from 'lodash-es/throttle'
+import equal from 'fast-deep-equal'
 
 export type AutoCompleteItem = {
   searchterm: string,
@@ -43,7 +45,7 @@ export class Value extends Component<Props, State> {
 
   componentDidUpdate(prevProps: Props, prevState: State) {
     if (prevState.value !== this.state.value && this.state.value.length > 2) {
-      this.fetchList()
+      this.throttledFetchSuggestions()
     }
   }
 
@@ -51,7 +53,9 @@ export class Value extends Component<Props, State> {
     this.setState(
       (prevState: State) => ({ value }),
       () => {
-        this.updateAutoComplete()
+        if (value) {
+          this.updateAutoComplete()
+        }
       }
     )
   }
@@ -60,12 +64,23 @@ export class Value extends Component<Props, State> {
     this.setState(() => ({ value: '' }))
   }
 
-  fetchList = async () => {
+  throttledFetchSuggestions = throttle(
+    () => {
+      this.fetchSuggestions()
+    },
+    500,
+    { leading: true }
+  )
+
+  fetchSuggestions = async () => {
     const fetchedData = await fetchData(this.state.value)
 
     if (fetchedData.error) {
       this.setState(() => ({ error: true }))
-    } else if (fetchedData.suggestions) {
+    } else if (
+      fetchedData.suggestions &&
+      !equal(this.state.suggestions, fetchedData.suggestions)
+    ) {
       this.setState(
         () => ({
           suggestions: fetchedData.suggestions

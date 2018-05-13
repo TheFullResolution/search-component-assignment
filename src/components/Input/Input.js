@@ -31,6 +31,7 @@ export const Input = (props: Props) => {
               onClick={props.reset}
               className="input-reset"
               aria-label="Reset"
+              type="button"
             >
               <img
                 src={`${process.env.PUBLIC_URL || ''}/images/cancel.svg`}
