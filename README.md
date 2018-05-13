@@ -1,51 +1,43 @@
-## de Bijenkorf Frontend Dev assignment
+# Bijenkorf Assignment
 
-This project allows de Bijenkorf to asses potential frontend candidates with real, working code.
+## General Information
 
-It is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) to give you the initial setup.
+Except for activating [Flow](https://flow.org/), no additional modifications were made to create react app setup. I used [Hygen](http://www.hygen.io/) to generate files, mostly because I wanted to test it - heard about on [Javascript podcast](https://devchat.tv/js-jabber/jsj-312-hygen-with-dotan-nahum) last week.
 
-If you are not familiar with Create React App you can find an up to date guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Following packages were included in a development of the exercises:
 
-## Folder Structure
+- [axios](https://github.com/axios/axios) - my default choice since fetch API doesn't work with Node
 
-The initial project structure looks like this:
+- [downshift](https://github.com/paypal/downshift) - primitives to build simple, flexible, WAI-ARIA compliant React autocomplete. Perfect for custom UI. 
 
-```
-frontend-dev-assignment/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-    manifest.json
-  src/
-    App.js
-    App.test.js
-    index.css
-    index.js
-    registerServiceWorker.js
-```
+- [fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal) - used in Value component to prevent unnecessary setState calls
 
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
+- [focus-visible](https://github.com/WICG/focus-visible) - polyfill for `:focus-visible`, allows to remove outline when using a mouse, but keeps it with keyboard
 
-## Exercises
+- [lodash.throttle](https://www.npmjs.com/package/lodash.throttle)
 
-You will find the exercises and associated instructions in separate named folders in the root of this project. This assignment is [timeboxed](https://en.wikipedia.org/wiki/Timeboxing) to **4 hours** max.
+- [match-sorter](https://github.com/kentcdodds/match-sorter) - deterministic best-match sorting of an array in JavaScript
 
-## Notes
-If you have any remarks or observations while working on this assignment you are encouraged submit these along with the assignment.
+- [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
 
-## Submitting your code
-If you are completing this offsite please push your local working copy to a remote repository and mail the link to <mailto:james.wakefield@debijenkorf.nl>
+- [react-transition-group](https://github.com/reactjs/react-transition-group) - animation
 
-Please contact me if you have any questions.
+## Usage Notes
 
-```
---
-James Wakefield
-Front End Development Team Lead
-james.wakefield@debijenkorf.nl
+To review the assignment you can just run `yarn start` after installing all the dependencies.
 
-de Bijenkorf
-```
+All the components' logic is connected inside `App` component.
+
+Folder components contain all the other components. The component responsible for state and fetching data is called `Value`.
+
+## Assignment completion
+
+exercise 1 - 100%
+
+exercise 2 - 100%
+
+exercise 3 ~ 80% - didn't find time to properly and thoroughly test all the methods, including API calls. Or to create integration test.
+
+exercise 4 - although environment for Storybook is properly configured, at the moment only default views are prepared.
+
+
