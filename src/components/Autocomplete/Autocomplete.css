@@ -1,0 +1,36 @@
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-wrapper {
+	border: 1px solid rgb(210, 210, 210);
+  border-top: none;
+  max-height: 300px;
+	overflow-y: auto;
+  position: absolute;
+  width: 100%;
+}
+
+.autocomplete-item {
+  border-bottom: 1px solid rgb(210, 210, 210);
+  padding: 8px;
+}
+
+.autocomplete-highlighted {
+  background-color: rgba(210, 210, 210, 0.5);
+}
+
+.autocomplete-searchterm {
+  font-weight: 700;
+}
+
+.autocomplete-highlight {
+  background-color: inherit;
+  color: rgb(113, 113, 113);
+  font-weight: 400;
+}
+
+.autocomplete-counter {
+  color: rgb(204, 204, 204);
+}
