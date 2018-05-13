@@ -2,8 +2,18 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
 import {Autocomplete} from './Autocomplete.js'
 
-storiesOf('Autocomplete', module).add('default', () => <Autocomplete />)
+const props = {
+  autoComplete: [
+    { searchterm: 'test', nrResults: 10 },
+    { searchterm: 'try', nrResults: 10 },
+    { searchterm: 'another', nrResults: 10 }
+  ],
+  getItemProps: params => params,
+  highlightedIndex: 0,
+  show: true,
+  inputValue: 'test'
+}
+
+storiesOf('Autocomplete', module).add('default', () => <Autocomplete {...props}/>)

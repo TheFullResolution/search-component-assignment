@@ -3,12 +3,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Input } from './Input.js'
-import type { ValueRenderProps } from '../Value/Value'
 
-const props: ValueRenderProps = {
-  value: '',
-  onChange: value => {},
-  resetValue: () => {}
+const props = {
+  getInputProps: params => params,
+  inputValue: 'test',
+  reset: () => {}
 }
 
 storiesOf('Input', module).add('default', () => <Input {...props} />)
