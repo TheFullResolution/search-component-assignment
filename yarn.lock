@@ -745,7 +745,7 @@ babel-eslint@7.2.3:
     babel-types "^6.23.0"
     babylon "^6.17.0"
 
-babel-eslint@^8.2.3:
+babel-eslint@8.2.3:
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.2.3.tgz#1a2e6681cc9bc4473c32899e59915e19cd6733cf"
   dependencies:
@@ -3804,6 +3804,10 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
+
+focus-visible@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-4.1.4.tgz#f9963bcf5784b1d9dcde62ba53214d38a4f3f9af"
 
 follow-redirects@^1.0.0:
   version "1.4.1"
@@ -7083,7 +7087,7 @@ react-test-renderer@16.3.2:
     prop-types "^15.6.0"
     react-is "^16.3.2"
 
-react-transition-group@^2.0.0:
+react-transition-group@^2.0.0, react-transition-group@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.3.1.tgz#31d611b33e143a5e0f2d94c348e026a0f3b474b6"
   dependencies:

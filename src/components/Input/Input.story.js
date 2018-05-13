@@ -1,7 +1,17 @@
+//@flow
+
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
-import {Input} from './Input.js'
+import { Input } from './Input.js'
+import type { ValueRenderProps } from '../Value/Value'
 
-storiesOf('Input', module).add('default', () => <Input />)
+const props: ValueRenderProps = {
+  state: {
+    value: '',
+    pristine: true
+  },
+  onChange: value => {},
+  resetValue: () => {}
+}
+
+storiesOf('Input', module).add('default', () => <Input {...props} />)

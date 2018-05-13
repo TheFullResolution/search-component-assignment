@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "canned": "0.3.12",
+    "focus-visible": "4.1.4",
     "react": "16.3.2",
-    "react-dom": "16.3.2"
+    "react-dom": "16.3.2",
+    "react-transition-group": "2.3.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.4.3",
