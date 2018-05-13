@@ -1,3 +1,5 @@
+import '../components/Autocomplete/Autocomplete.story'
+
 import '../components/Input/Input.story'
 
 // import React from 'react';
