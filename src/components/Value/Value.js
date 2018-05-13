@@ -3,23 +3,23 @@
 import { Component } from 'react'
 import type { Node } from 'react'
 import axios from 'axios'
+import matchSorter from 'match-sorter'
 
 export type AutoCompleteItem = {
   searchterm: string,
   nrResults: number
 }
 
-type State = {
-  autoComplete: AutoCompleteItem[],
-  error: boolean,
-  pristine: boolean,
-  value: string
+interface State {
+  autoComplete: AutoCompleteItem[];
+  error: boolean;
+  suggestions: AutoCompleteItem[];
+  value: string;
 }
 
-export type ValueRenderProps = {
-  onChange: (value: string) => void,
-  resetValue: () => void,
-  state: State
+export interface ValueRenderProps extends State {
+  onChange: (value: string) => void;
+  resetValue: () => void;
 }
 
 type Props = {
@@ -28,50 +28,65 @@ type Props = {
 
 export class Value extends Component<Props, State> {
   state = {
+    suggestions: [],
     autoComplete: [],
     error: false,
-    pristine: false,
     value: ''
   }
   render() {
     return this.props.children({
+      ...this.state,
       onChange: this.onChange,
-      resetValue: this.resetValue,
-      state: this.state
+      resetValue: this.resetValue
     })
   }
 
   componentDidUpdate(prevProps: Props, prevState: State) {
     if (prevState.value !== this.state.value && this.state.value.length > 2) {
-      this.updateList()
+      this.fetchList()
     }
   }
 
   onChange = (value: string) => {
-    this.setState((prevState: State) => updateValue(value, prevState))
+    this.setState(
+      (prevState: State) => ({ value }),
+      () => {
+        this.updateAutoComplete()
+      }
+    )
   }
 
   resetValue = () => {
     this.setState(() => ({ value: '' }))
   }
 
-  updateList = async () => {
+  fetchList = async () => {
     const fetchedData = await fetchData(this.state.value)
 
     if (fetchedData.error) {
       this.setState(() => ({ error: true }))
     } else if (fetchedData.suggestions) {
-      this.setState((prevState: State) => ({
-        autoComplete: fetchedData.suggestions
-      }))
+      this.setState(
+        () => ({
+          suggestions: fetchedData.suggestions
+        }),
+        () => {
+          this.updateAutoComplete()
+        }
+      )
     }
   }
-}
 
-const updateValue = (value: string, prevState: State) => ({
-  ...(!prevState.pristine ? { pristine: true } : {}),
-  value
-})
+  updateAutoComplete = () => {
+    const autoComplete = matchSorter(this.state.suggestions, this.state.value, {
+      keys: ['searchterm']
+    })
+
+    this.setState(() => ({
+      autoComplete
+    }))
+  }
+}
 
 type FetchDataReturn =
   | {| suggestions: AutoCompleteItem[] |}
