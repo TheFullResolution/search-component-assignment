@@ -2,6 +2,6 @@
 
 exports[`Value: default 1`] = `
 <div>
-  {"state":{"pristine":false,"value":""}}
+  {"suggestions":[],"autoComplete":[],"error":false,"value":""}
 </div>
 `;

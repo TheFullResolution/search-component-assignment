@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Autocomplete: default 1`] = `
+<div
+  className="autocomplete-container"
+>
+  <div>
+    <div
+      className="autocomplete-wrapper"
+    >
+      <div>
+        <div
+          className="autocomplete-item autocomplete-highlighted"
+          item="test"
+        >
+          <span
+            className="autocomplete-searchterm"
+          >
+            <mark
+              className="autocomplete-highlight "
+              style={Object {}}
+            >
+              test
+            </mark>
+          </span>
+          <span>
+             (
+            10
+            )
+          </span>
+        </div>
+        <div
+          className="autocomplete-item "
+          item="try"
+        >
+          <span
+            className="autocomplete-searchterm"
+          >
+            <span
+              className=""
+              style={undefined}
+            >
+              try
+            </span>
+          </span>
+          <span>
+             (
+            10
+            )
+          </span>
+        </div>
+        <div
+          className="autocomplete-item "
+          item="another"
+        >
+          <span
+            className="autocomplete-searchterm"
+          >
+            <span
+              className=""
+              style={undefined}
+            >
+              another
+            </span>
+          </span>
+          <span>
+             (
+            10
+            )
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

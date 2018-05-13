@@ -6,10 +6,7 @@ import { Input } from './Input.js'
 import type { ValueRenderProps } from '../Value/Value'
 
 const props: ValueRenderProps = {
-  state: {
-    value: '',
-    pristine: true
-  },
+  value: '',
   onChange: value => {},
   resetValue: () => {}
 }

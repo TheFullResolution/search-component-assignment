@@ -4,7 +4,7 @@ import { Component } from 'react'
 import type { Node } from 'react'
 import axios from 'axios'
 import matchSorter from 'match-sorter'
-import throttle from 'lodash-es/throttle'
+import throttle from 'lodash.throttle'
 import equal from 'fast-deep-equal'
 
 export type AutoCompleteItem = {
