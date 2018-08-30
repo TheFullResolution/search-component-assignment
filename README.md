@@ -1,4 +1,4 @@
-# Bijenkorf Assignment
+# Search Component Assignment
 
 ## General Information
 
