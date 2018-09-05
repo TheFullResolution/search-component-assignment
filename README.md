@@ -1,5 +1,16 @@
 # Search Component Assignment
 
+## Usage Notes
+
+To review the assignment you can just run `yarn start` after installing all the dependencies.
+
+To test autocomplete functionality use the word **'truien'** - JSON contains mostly results related to that word. 
+
+All the components' logic is connected inside `App` component.
+
+Folder components contain all the other components. The component responsible for state and fetching data is called `Value`.
+
+
 ## General Information
 
 Except for activating [Flow](https://flow.org/), no additional modifications were made to create react app setup. I used [Hygen](http://www.hygen.io/) to generate files, mostly because I wanted to test it - heard about on [Javascript podcast](https://devchat.tv/js-jabber/jsj-312-hygen-with-dotan-nahum) last week.
@@ -22,13 +33,7 @@ Following packages were included in a development of the exercises:
 
 - [react-transition-group](https://github.com/reactjs/react-transition-group) - animation
 
-## Usage Notes
 
-To review the assignment you can just run `yarn start` after installing all the dependencies.
-
-All the components' logic is connected inside `App` component.
-
-Folder components contain all the other components. The component responsible for state and fetching data is called `Value`.
 
 ## Assignment completion
 

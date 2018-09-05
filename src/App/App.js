@@ -21,7 +21,6 @@ class App extends Component<{}> {
                 inputValue,
                 isOpen,
                 clearSelection,
-                selectedItem
               }) => {
                 const resetCombine = () => {
                   resetValue()
